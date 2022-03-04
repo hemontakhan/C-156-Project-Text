@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+ <script src="​​https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physi cs-system.min.js"> </script>
+
+
+ <script src="./components/Rotation.js"></script>
+ <script src="./components/Coin.js"></script>
+
+ </head>
+ <body>
+  <a-scene style="background-Color:rgb(44, 44, 197)">
+
+    <a-camera position='0 0 0' camera-position>  </a-camera>
+
+    <a-assets timeout="10000">
+    <a-asset-item id='island-obj' src="./Island/tinker.obj"></a-asset-item>
+    <a-asset-item id="island-mtl" src="./Island/obj.mtl"></a-asset-item>
+    <a-asset-item id='diver' src="./Scuba Diver.glb"></a-asset-item>
+    </a-assets>
+
+  <!--Simulation Text-->
+    <a-entity
+     poition="0 1000  0"
+     text="font: exo2bold;align : left ; width:30;color:black;value:VIRTUAL SCUBA DIVING"
+    >
+   </a-entity>
+
+    <!--Island-->
+    <a-entity
+      id="oceanic-island"
+      obj-model="obj:#island-obj;mtl:#island-mtl"
+      position="0 -25 2"
+      rotation="-90 0 360"
+      scale="0.25 0.25 0.25"
+      static-body
+      coin
+    >
+    </a-entity>
+
+    <!--Scuba Diver-->
+    <a-entity
+     gltf-model = '#diver'
+     position="0 -3  5"
+     rotation="0 360 0"
+     scale = '0.05 0.05 0.05'
+     diver-rotation-reader
+     dynamic-body = 0
+    >
+    </a-entity>
+
+    
+   
+
+
+  </a-scene>
+ </body>
+</html>
